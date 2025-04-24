@@ -1,0 +1,294 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: #2d3436;
+    color: #fff;
+}
+
+.workflow-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.controls {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background: #1e2527;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lp-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.control-btn {
+    background: rgba(0, 206, 201, 0.1);
+    border: 2px solid #00cec9;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.control-btn.lp-btn {
+    padding: 8px 16px;
+    font-size: 18px;
+}
+
+.control-btn:hover:not(.disabled) {
+    background: rgba(0, 206, 201, 0.2);
+    transform: translateY(-2px);
+}
+
+.control-btn:active:not(.disabled) {
+    transform: translateY(0);
+}
+
+.control-btn.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: rgba(0, 206, 201, 0.5);
+}
+
+.lp-count {
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    min-width: 60px;
+    text-align: center;
+}
+
+.workflow-visualization {
+    flex: 1;
+    width: 100%;
+    overflow: hidden;
+}
+
+.node {
+    fill: #2d3436;
+    stroke: #00cec9;
+    stroke-width: 3;
+}
+
+.node.user {
+    stroke: #0984e3;
+}
+
+.node.bank {
+    stroke: #00b894;
+}
+
+.node-text {
+    fill: #fff;
+    font-size: 12px;
+    text-anchor: middle;
+}
+
+.node-icon {
+    font-size: 20px;
+}
+
+.link {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.6);
+    stroke-width: 2;
+}
+
+.link:hover {
+    stroke: rgba(255, 255, 255, 0.9);
+    stroke-width: 3;
+}
+
+.link-label, .link-multiplicity {
+    fill: #fff;
+    font-weight: bold;
+    text-anchor: middle;
+    pointer-events: none;
+}
+
+.link-label {
+    font-size: 12px;
+}
+
+.link-multiplicity {
+    font-size: 18px;
+    fill: #aaa;
+}
+
+.moving-dot {
+    fill: #ffffff;
+    filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
+}
+
+.tab-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: #2d3436;
+}
+
+.tab-buttons {
+    display: flex;
+    gap: 2px;
+    padding: 10px 20px;
+    background: #1e2527;
+}
+
+.tab-btn {
+    background: rgba(0, 206, 201, 0.1);
+    border: 2px solid #00cec9;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    background: rgba(0, 206, 201, 0.2);
+}
+
+.tab-btn.active {
+    background: rgba(0, 206, 201, 0.3);
+    border-color: #00cec9;
+}
+
+.tab-content {
+    flex: 1;
+    position: relative;
+}
+
+.diagram {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.diagram.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.workflow-visualization {
+    width: 100%;
+    height: calc(100% - 80px);
+}
+
+.global-controls {
+    padding: 15px 20px;
+    background: #1e2527;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: center;
+}
+
+.animation-controls {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    background: #1e2527;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.tooltip {
+    position: absolute;
+    padding: 12px 16px;
+    background: rgba(45, 52, 54, 0.95);
+    color: #fff;
+    border: 2px solid #00cec9;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: bold;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 15px rgba(0, 206, 201, 0.3);
+    max-width: 300px;
+}
+
+.tooltip-content {
+    line-height: 1.4;
+}
+
+.tooltip-content strong {
+    color: #00cec9;
+    display: block;
+    margin-bottom: 8px;
+    font-size: 16px;
+}
+
+.tooltip-content small {
+    color: rgba(255, 255, 255, 0.7);
+    display: block;
+    margin-top: 4px;
+}
+
+.margin-text {
+    font-size: 12px;
+    fill: #aaa;
+    font-style: italic;
+}
+
+/* Node dragging styles */
+.node-dragging {
+    cursor: move;
+}
+
+.connection-drawing {
+    cursor: crosshair;
+}
+
+/* Selection styles */
+.selected {
+    stroke: #4CAF50 !important;
+    stroke-width: 3px;
+}
+
+/* Context menu */
+.context-menu {
+    position: fixed;
+    background: #333;
+    border: 1px solid #444;
+    border-radius: 4px;
+    padding: 5px 0;
+    min-width: 150px;
+    z-index: 1000;
+}
+
+.context-menu-item {
+    padding: 8px 15px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.context-menu-item:hover {
+    background: #444;
+}
+
+/* Temporary connection line */
+.temp-line {
+    stroke: #4CAF50;
+    stroke-width: 2;
+    stroke-dasharray: 5;
+    pointer-events: none;
+}

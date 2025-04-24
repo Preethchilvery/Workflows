@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TEX Trading Workflow</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="styles/workflow.css">
+</head>
+<body>
+    <div class="tab-container">
+        <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="diagram1">TEX Workflow</button>
+            <button class="tab-btn" data-tab="diagram2">ITEX Workflow</button>
+        </div>
+        
+        <div class="tab-content">
+            <!-- First Diagram -->
+            <div class="diagram active" id="diagram1">
+                <div id="workflow-visualization-1" class="workflow-visualization"></div>
+                <div class="controls">
+                    <div class="lp-controls">
+                        <button id="removeLpBtn" class="control-btn lp-btn">-</button>
+                        <span class="lp-count">3 LPs</span>
+                        <button id="addLpBtn" class="control-btn lp-btn">+</button>
+                    </div>
+                    <div class="animation-controls">
+                        <button id="initiateBtn1" class="control-btn">INITIATE REQUEST</button>
+                        <button id="stopBtn1" class="control-btn">STOP</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Second Diagram -->
+            <div class="diagram" id="diagram2">
+                <div id="workflow-visualization-2" class="workflow-visualization"></div>
+                <div class="controls">
+                    <div class="lp-controls">
+                        <button id="removeLpBtn2" class="control-btn lp-btn">-</button>
+                        <span class="lp-count">3 LPs</span>
+                        <button id="addLpBtn2" class="control-btn lp-btn">+</button>
+                    </div>
+                    <div class="animation-controls">
+                        <button id="initiateBtn2" class="control-btn">INITIATE REQUEST</button>
+                        <button id="stopBtn2" class="control-btn">STOP</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/workflow.js"></script>
+</body>
+</html>
