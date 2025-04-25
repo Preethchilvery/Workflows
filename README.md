@@ -8,4 +8,4 @@ Interactive visualization of TEX and ITEX trading workflows using D3.js.
 
 
 ## Live Demo
-Visit the live demo at: https://[your-username].github.io/tex-trading-workflow/
+Visit the live demo at: [https://[your-username].github.io/tex-trading-workflow/](https://preethchilvery.github.io/Workflows/)
